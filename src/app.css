@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Dokdo');
 
-html, body{
+#root, html, body{
     height: 100%;
     padding: 0;
     margin: 0;
@@ -10,8 +10,15 @@ body {
     background-color: #abd3e3;
 }
 
-#root{
-    height: 100%;
+button{
+    color: inherit;
+    font-family: inherit;
+    border: none;
+    background: none;
+}
+
+button:focus{
+    outline: none;
 }
 
 .board__wrapper{
