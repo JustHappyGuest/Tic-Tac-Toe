@@ -7,16 +7,7 @@ const withEventsFunctions = (state) => (View) => (
 
         state = state;
 
-        constructor() {
-            super();
-
-            this.onNewGame = this.onNewGame.bind(this);
-            this.onHistoryShow = this.onHistoryShow.bind(this);
-            this.onClickSquare = this.onClickSquare.bind(this);
-            this.onClickHistoryItem = this.onClickHistoryItem.bind(this);
-        }
-
-        onClickSquare(i) {
+        onClickSquare = (i) => {
             let history = this.state.history;
             let squares = history[history.length - 1].slice();
             let currentPlayer = this.state.currentPlayer;
@@ -44,7 +35,7 @@ const withEventsFunctions = (state) => (View) => (
 
         }
 
-        onNewGame() {
+        onNewGame = () => {
             this.setState({
                 historyShow: false,
                 tie: false,
@@ -56,22 +47,21 @@ const withEventsFunctions = (state) => (View) => (
             })
         }
 
-        onHistoryShow() {
-            this.setState(({ historyShow }) => ({
-                historyShow: !historyShow
-            }))
+        onHistoryShow = () => {
+            this.setState({historyShow: !this.state.historyShow})
         }
 
 
-        onClickHistoryItem(i) {
-            this.setState(({ history }) => {
-                history.length = i + 1;
-                return ({
-                    tie: false,
-                    win: { player: null, line: null },
-                    currentPlayer: (i + 1) % 2 === 0 ? "O" : "X",
-                    history: history
-                });
+
+        onClickHistoryItem = (i) => {
+            const history = this.state.history;
+            history.length = i + 1;
+
+            this.setState({
+                tie: false,
+                win: { player: null, line: null },
+                currentPlayer: (i + 1) % 2 === 0 ? "O" : "X",
+                history
             })
         }
 

@@ -2,7 +2,7 @@ import React from 'react';
 
 import Board from '../board';
 import Panel from '../panel';
-import History from '../history/';
+import History from '../history';
 import Status from '../status';
 import {withEventsFunctions} from '../../hoc-helpers';
 
